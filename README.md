@@ -122,17 +122,29 @@ To enhance forecasting accuracy, deep learning models were incorporated to captu
 
 ##  System Architecture
 Data Sources (FAO, IMF, World Bank)
+
 ↓
+
 Data Collection (Python)
+
 ↓
+
 Data Cleaning & Preprocessing
+
 ↓
+
 Exploratory Data Analysis (EDA)
+
 ↓
+
 Modeling (Time Series + ML + Deep Learning)
+
 ↓
-Visualization (Tableau / Streamlit)
+
+Visualization (Tableau)
+
 ↓
+
 Deployment(Streamlit)
 
 
