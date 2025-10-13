@@ -147,5 +147,35 @@ Visualization (Tableau)
 
 Deployment(Streamlit)
 
+## 🎯 Target Audience
+
+The **Global Food Price Monitor (GFPM)** serves a variety of stakeholders who rely on accurate, timely, and actionable food price insights:
+
+1. **Policymakers & Government Agencies**  
+   - **Who:** Ministries of Agriculture, Finance, Trade; Central Banks; National Statistics Bureaus  
+   - **Why:** Food prices affect inflation, subsidies, and social protection policies. Early warnings help design interventions like tariff adjustments, food aid, and strategic reserves.  
+   - **Needs:** Clear dashboards and forecasts to guide policy and budget decisions.
+
+2. **International Organizations & NGOs**  
+   - **Who:** FAO, WFP, World Bank, IMF, UN agencies, humanitarian NGOs  
+   - **Why:** Price monitoring is critical for identifying crisis zones and managing food aid, market interventions, and funding decisions.  
+   - **Needs:** Comparative global and regional trends, inflation-adjusted insights, and anomaly alerts.
+
+3. **Agribusinesses & Supply Chain Stakeholders**  
+   - **Who:** Food importers/exporters, wholesalers, retailers, logistics companies  
+   - **Why:** Price trends influence procurement, inventory, and profit margins. Forecasting aids in cost anticipation, contract negotiation, and logistics optimization.  
+   - **Needs:** Commodity-specific short- and medium-term forecasts and market signals.
+
+4. **Financial & Economic Analysts**  
+   - **Who:** Banks, investment firms, economists, research institutions  
+   - **Why:** Food prices affect CPI, interest rates, and investment decisions. Analysts monitor commodities to anticipate market risks and macroeconomic shifts.  
+   - **Needs:** Historical and forecast data to build economic models, investment reports, or inflation outlooks.
+
+5. **Researchers & Data Scientists**  
+   - **Who:** Academics, students, open-data enthusiasts, policy researchers  
+   - **Why:** Global food price datasets allow modeling seasonality, volatility, and causal relationships; useful for predictive modeling and policy testing.  
+   - **Needs:** Clean, structured data; reproducible pipelines; open APIs or notebooks.
+
+
 
 
