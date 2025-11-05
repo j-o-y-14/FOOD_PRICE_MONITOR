@@ -72,9 +72,7 @@ Tools: `matplotlib`, `seaborn`, `Tableau`
 #### 🔹 Machine Learning Models
 - **Linear Regression, XGBoost, Random Forest** to predict food prices using inflation, GDP, and other economic factors.
 
-#### 🔹 Data Mining
-- **K-Means Clustering:** Group countries with similar inflation–price dynamics.
-- **Anomaly Detection:** Identify unexpected spikes in food prices.
+
 
 ---
 
