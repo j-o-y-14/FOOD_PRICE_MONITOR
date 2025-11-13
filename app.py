@@ -66,17 +66,14 @@ def load_default_data():
     file_id = "1CxpN-KaP_kVERLL-GpQXnbGnpGq9nbvG"
     url = f"https://drive.google.com/uc?export=download&id={file_id}"
     
-    df = pd.read_csv(url)
+    # Use first column as index and parse as dates
+    df = pd.read_csv(url, index_col=0, parse_dates=True)
+    
+    # Reset index so Date becomes a column
+    df = df.reset_index().rename(columns={'index': 'Date'})
 
     # Clean column names
     df.rename(columns=lambda x: x.strip(), inplace=True)
-
-    # Ensure Date column exists
-    if 'Date' not in df.columns:
-        st.error("CSV does not contain a 'Date' column. Please check your file.")
-        return pd.DataFrame()
-
-    df['Date'] = pd.to_datetime(df['Date'])
 
     # Map country/commodity names
     if np.issubdtype(df['Country'].dtype, np.number):
@@ -230,6 +227,7 @@ else:
                     ax2.legend(loc='upper right')
 
                     st.pyplot(fig)
+
 
 
 
