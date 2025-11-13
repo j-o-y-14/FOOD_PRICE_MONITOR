@@ -5,6 +5,7 @@ from tensorflow.keras.models import load_model
 from tensorflow.keras.metrics import MeanSquaredError
 import joblib
 import matplotlib.pyplot as plt
+import gdown
 
 # ==============================
 # Constants
@@ -63,13 +64,18 @@ base_prices_usd_per_ton = {
 # ==============================
 @st.cache_data
 def load_default_data():
+    # Google Drive file ID
     file_id = "1CxpN-KaP_kVERLL-GpQXnbGnpGq9nbvG"
-    url = f"https://drive.google.com/uc?export=download&id={file_id}"
+    url = f"https://drive.google.com/uc?id={file_id}"
 
-    # Load CSV and parse Date column
-    df = pd.read_csv(url, parse_dates=['Date'])
+    # Download CSV to local file
+    output = "merged.csv"
+    gdown.download(url, output, quiet=True, fuzzy=True)
 
-    # Strip whitespace from all column names
+    # Read CSV
+    df = pd.read_csv(output, parse_dates=['Date'])
+
+    # Strip whitespace from column names
     df.columns = df.columns.str.strip()
 
     # Map Country and Commodity
@@ -215,6 +221,7 @@ else:
                     ax2.legend(loc='upper right')
 
                     st.pyplot(fig)
+
 
 
 
