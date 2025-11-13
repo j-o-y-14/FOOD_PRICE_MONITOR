@@ -7,14 +7,14 @@ import joblib
 import matplotlib.pyplot as plt
 import gdown
 
-# ==============================
+
 # Constants
-# ==============================
+
 SEQ_LEN = 12
 
-# ==============================
+
 # Load models and scaler
-# ==============================
+
 @st.cache_resource
 def load_models_and_scaler():
     try:
@@ -29,9 +29,9 @@ def load_models_and_scaler():
 
 lstm_1m_model, lstm_6m_model, feat_scaler = load_models_and_scaler()
 
-# ==============================
+
 # Country & Commodity Encoders
-# ==============================
+
 country_list = [
     'Austria', 'Belgium', 'Canada', 'Chile', 'China', 'Colombia', 'Czech Republic', 'Denmark',
     'Estonia', 'Finland', 'France', 'Germany', 'Greece', 'Hungary', 'Iceland', 'Ireland',
@@ -48,9 +48,9 @@ commodity_decoder = {i: c for i, c in enumerate(commodity_list)}
 country_encoder = {v: k for k, v in country_decoder.items()}
 commodity_encoder = {v: k for k, v in commodity_decoder.items()}
 
-# ==============================
+
 # Base Prices (2014–2016 averages)
-# ==============================
+
 base_prices_usd_per_ton = {
     "Meat": 3000,
     "Dairy": 3500,
@@ -59,9 +59,9 @@ base_prices_usd_per_ton = {
     "Sugar": 400
 }
 
-# ==============================
+
 # Load CSV from Google Drive
-# ==============================
+
 @st.cache_data
 def load_default_data():
     file_id = "1CxpN-KaP_kVERLL-GpQXnbGnpGq9nbvG"
@@ -76,9 +76,8 @@ def load_default_data():
 
 df = load_default_data()
 
-# ==============================
 # Sidebar Controls
-# ==============================
+
 st.sidebar.header("Forecasting Controls")
 
 unique_countries = sorted(df['Country_name'].dropna().unique())
@@ -89,9 +88,9 @@ selected_commodity = st.sidebar.selectbox("Select Commodity", ["Select Commodity
 selected_month = st.sidebar.selectbox("Months ahead to predict", [1, 6])
 predict_button = st.sidebar.button("Predict")
 
-# ==============================
+
 # Main Section Layout
-# ==============================
+
 st.markdown(
     """
     <h1 style='text-align: center;'>Global Food Price Forecast</h1>
@@ -102,9 +101,9 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# ==============================
+
 # Validation before prediction
-# ==============================
+
 if selected_country == "Select Country" or selected_commodity == "Select Commodity":
     st.info("Please select a Country and a Commodity from the sidebar to begin.")
 else:
@@ -117,9 +116,9 @@ else:
                 unsafe_allow_html=True
             )
 
-            # ==============================
+           
             # Forecast Logic
-            # ==============================
+          
             encoded_country = country_encoder.get(selected_country)
             encoded_commodity = commodity_encoder.get(selected_commodity)
 
@@ -186,9 +185,9 @@ else:
                         mime="text/csv",
                     )
 
-                    # ==============================
+                  
                     # Plot: FPI only
-                    # ==============================
+                   
                     st.markdown("### FPI Trend Overview")
                     fig, ax = plt.subplots(figsize=(8, 4))
                     ax.plot(df_filtered['Date'], df_filtered['FPI'], color='blue', label='Historical FPI', linewidth=2)
