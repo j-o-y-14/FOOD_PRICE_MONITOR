@@ -64,24 +64,14 @@ base_prices_usd_per_ton = {
 # ==============================
 @st.cache_data
 def load_default_data():
-    # Google Drive file ID
     file_id = "1CxpN-KaP_kVERLL-GpQXnbGnpGq9nbvG"
     url = f"https://drive.google.com/uc?id={file_id}"
-
-    # Download CSV to local file
     output = "merged.csv"
     gdown.download(url, output, quiet=True, fuzzy=True)
-
-    # Read CSV
     df = pd.read_csv(output, parse_dates=['Date'])
-
-    # Strip whitespace from column names
     df.columns = df.columns.str.strip()
-
-    # Map Country and Commodity
     df['Country_name'] = df['Country'].map(country_decoder)
     df['Commodity_name'] = df['Commodity'].map(commodity_decoder)
-
     return df
 
 df = load_default_data()
@@ -197,30 +187,19 @@ else:
                     )
 
                     # ==============================
-                    # Plot: FPI + Estimated Price
+                    # Plot: FPI only
                     # ==============================
-                    st.markdown("### FPI and Estimated Price Trend")
-                    fig, ax1 = plt.subplots(figsize=(8, 4))
-
-                    ax1.plot(df_filtered['Date'], df_filtered['FPI'], color='blue', label='Historical FPI', linewidth=2)
-                    ax1.plot(prediction_df['Month'], prediction_df['Predicted FPI (Index Value)'],
+                    st.markdown("### FPI Trend Overview")
+                    fig, ax = plt.subplots(figsize=(8, 4))
+                    ax.plot(df_filtered['Date'], df_filtered['FPI'], color='blue', label='Historical FPI', linewidth=2)
+                    ax.plot(prediction_df['Month'], prediction_df['Predicted FPI (Index Value)'],
                              color='orange', linestyle='--', marker='o', label='Predicted FPI', linewidth=2)
-                    ax1.set_xlabel("Date")
-                    ax1.set_ylabel("FPI (Index Value)", color='blue')
-                    ax1.tick_params(axis='y', labelcolor='blue')
-
-                    ax2 = ax1.twinx()
-                    ax2.plot(prediction_df['Month'], prediction_df['Estimated Price (USD/ton)'],
-                             color='green', linestyle='-.', marker='x', label='Estimated Price', linewidth=2)
-                    ax2.set_ylabel("Estimated Price (USD/ton)", color='green')
-                    ax2.tick_params(axis='y', labelcolor='green')
-
-                    fig.suptitle(f"FPI and Estimated Price Forecast for {selected_country} - {selected_commodity}", fontsize=14)
-                    fig.tight_layout()
-                    ax1.legend(loc='upper left')
-                    ax2.legend(loc='upper right')
-
+                    ax.set_title(f"FPI Forecast for {selected_country} - {selected_commodity}", fontsize=14)
+                    ax.set_xlabel("Date")
+                    ax.set_ylabel("FPI (Index Value)")
+                    ax.legend()
                     st.pyplot(fig)
+
 
 
 
