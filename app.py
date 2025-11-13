@@ -65,28 +65,16 @@ base_prices_usd_per_ton = {
 def load_default_data():
     file_id = "1CxpN-KaP_kVERLL-GpQXnbGnpGq9nbvG"
     url = f"https://drive.google.com/uc?export=download&id={file_id}"
-    
-    # Use first column as index and parse as dates
-    df = pd.read_csv(url, index_col=0, parse_dates=True)
-    
-    # Reset index so Date becomes a column
-    df = df.reset_index().rename(columns={'index': 'Date'})
 
-    # Clean column names
-    df.rename(columns=lambda x: x.strip(), inplace=True)
+    # Load CSV and parse Date column
+    df = pd.read_csv(url, parse_dates=['Date'])
 
-    # Map country/commodity names
-    if np.issubdtype(df['Country'].dtype, np.number):
-        df['Country_name'] = df['Country'].map(country_decoder)
-    else:
-        df['Country_name'] = df['Country']
-        df['Country'] = df['Country'].map(country_encoder)
+    # Strip whitespace from all column names
+    df.columns = df.columns.str.strip()
 
-    if np.issubdtype(df['Commodity'].dtype, np.number):
-        df['Commodity_name'] = df['Commodity'].map(commodity_decoder)
-    else:
-        df['Commodity_name'] = df['Commodity']
-        df['Commodity'] = df['Commodity'].map(commodity_encoder)
+    # Map Country and Commodity
+    df['Country_name'] = df['Country'].map(country_decoder)
+    df['Commodity_name'] = df['Commodity'].map(commodity_decoder)
 
     return df
 
@@ -227,6 +215,8 @@ else:
                     ax2.legend(loc='upper right')
 
                     st.pyplot(fig)
+
+
 
 
 
