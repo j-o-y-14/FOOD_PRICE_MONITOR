@@ -6,3 +6,7 @@ plotly
 tensorflow
 scikit-learn
 joblib
+keras
+joblib
+gdown
+
