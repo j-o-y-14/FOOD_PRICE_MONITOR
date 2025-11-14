@@ -151,7 +151,7 @@ Visualization (Tableau)
 
 Deployment(Streamlit)
 
-## 🎯 Target Audience
+##  Target Audience
 
 The **Global Food Price Monitor (GFPM)** serves a variety of stakeholders who rely on accurate, timely, and actionable food price insights:
 
