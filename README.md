@@ -10,6 +10,7 @@
 Website: https://food-forecast-nexus.lovable.app
 
 Full Article: https://food-price-monitor.hashnode.dev/global-food-price-monitor-predicting-food-prices-with-data-science
+
 Streamlit : https://foodpricemonitor.streamlit.app/
 ##  Overview
 
