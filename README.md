@@ -10,6 +10,7 @@
 Website: https://food-forecast-nexus.lovable.app
 
 Full Article: https://food-price-monitor.hashnode.dev/global-food-price-monitor-predicting-food-prices-with-data-science
+Streamlit : https://foodpricemonitor.streamlit.app/
 ##  Overview
 
 The **Global Food Price Monitor (GFPM)** is a data-driven analytics system designed to **track, analyze, and forecast global staple food prices** in relation to **inflation trends**.  
