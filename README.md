@@ -3,7 +3,13 @@
 **Tagline:** *Tracking the World’s Food Costs Through the Lens of Inflation.*
 
 ---
+🔗 Links
 
+
+
+Website: https://food-forecast-nexus.lovable.app
+
+Full Article: https://food-price-monitor.hashnode.dev/global-food-price-monitor-predicting-food-prices-with-data-science
 ##  Overview
 
 The **Global Food Price Monitor (GFPM)** is a data-driven analytics system designed to **track, analyze, and forecast global staple food prices** in relation to **inflation trends**.  
@@ -100,14 +106,14 @@ To enhance forecasting accuracy, deep learning models were incorporated to captu
 | Prophet | Time Series | Seasonality, trend analysis |
 | Random Forest | Machine Learning | Non-linear relationships |
 | LSTM | Deep Learning | Sequence learning |
-| Transformer | Deep Learning | Long-range dependencies |
+
 
 ---
 
 ### **5. Visualization & Dashboard**
 - Interactive dashboard for exploring trends and forecasts.
 - Visuals: Line charts, heatmaps, global maps, and correlation plots.  
-- Tools: `Tableau` 
+
 
 ---
 
