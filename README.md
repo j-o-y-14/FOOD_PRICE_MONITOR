@@ -74,7 +74,7 @@ Tools: `matplotlib`, `seaborn`, `Tableau`
 ### **4. Predictive Modeling**
 
 #### 🔹 Time Series Models
-- **ARIMA / SARIMA / Prophet** for price forecasting.
+- **ARIMA / SARIMA** for price forecasting.
 - Predict future food prices based on inflation trends.
 
 #### 🔹 Machine Learning Models
