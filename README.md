@@ -105,7 +105,7 @@ To enhance forecasting accuracy, deep learning models were incorporated to captu
 | Model | Type | Strength |
 |--------|------|-----------|
 | ARIMA | Statistical | Simple, interpretable |
-| Prophet | Time Series | Seasonality, trend analysis |
+| SARIMA | Time Series | Seasonality, trend analysis |
 | Random Forest | Machine Learning | Non-linear relationships |
 | LSTM | Deep Learning | Sequence learning |
 
